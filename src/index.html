@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CC-Space</title>
+        <link rel="stylesheet" media="(max-width: 1920px)" href="./css/index.css">
+        <link rel="stylesheet" media="(max-width: 425px)" href="./css/mobile.css">
+    </head>
+
+    <body>
+        <div id="wrapper">
+            <div id="container">
+                <div id="item-0" class="grid-item">
+                    <div class="box"></div>
+                </div>
+                <div id="item-1" class="grid-item">
+                    <div class="box"></div>
+                </div>
+                <div id="item-2" class="grid-item">
+                    <div class="box"></div>
+                </div>
+                <div id="item-3" class="grid-item">
+                    <div class="box"></div>
+                </div>
+                <div id="item-4" class="grid-item">
+                    <div class="box"></div>
+                </div>
+                <div id="item-5" class="grid-item">
+                    <div class="box"></div>
+                </div>
+                <div id="item-6" class="grid-item">
+                    <div class="box"></div>
+                </div>
+                <div id="item-7" class="grid-item">
+                    <div class="box"></div>
+                </div>
+                <div id="item-8" class="grid-item">
+                    <div class="box"></div>
+                </div>
+                <div id="item-9" class="grid-item">
+                    <div class="box"></div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <script>
+        const setScale = () => {
+            let clientWidth = document.documentElement.clientWidth
+            let clientHeight = document.documentElement.clientHeight
+            let designWidth = document.getElementById('container').offsetWidth
+            let designHeight = document.getElementById('container').offsetHeight
+            let scale = Math.min((clientWidth / designWidth), (clientHeight / designHeight))
+            document.querySelector('#container').style.transform = `scale(${scale}) translate(-50%,-50%)`
+        }
+        window.addEventListener('load', setScale)
+        window.addEventListener('resize', setScale)
+    </script>
+    <!-- <script src="http://raw.githack.com/cccoding365/lib4js/main/index.js"></script> -->
+
+</html>
