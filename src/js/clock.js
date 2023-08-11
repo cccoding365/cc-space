@@ -1,6 +1,6 @@
-const width = 170
-const height = 50
-const lineHeight = 24
+const width = 500
+const height = 100
+const lineHeight = 80
 const commonFont = {
     fontSize: lineHeight,
     lineHeight: lineHeight,
@@ -11,33 +11,33 @@ class App extends lng.Application {
         return {
             TimeWrapper: {
                 flex: { direction: 'row' },
-                mount: 0.2,
-                x: 50,
-                y: 20,
+                mount: .1,
+                x: 90,
+                y: 10,
                 Hours: {
-                    w: 30,
-                    children: [{ type: ChangeValue }, { type: ChangeValue, x: 15 }]
+                    w: 100,
+                    children: [{ type: ChangeValue }, { type: ChangeValue, x: 50 }]
                 },
                 ColonOne: {
                     text: Object.assign({ text: ':' }, commonFont)
                 },
                 Minutes: {
-                    w: 30,
-                    children: [{ type: ChangeValue }, { type: ChangeValue, x: 15 }]
+                    w: 100,
+                    children: [{ type: ChangeValue }, { type: ChangeValue, x: 50 }]
                 },
                 ColonTwo: {
                     text: Object.assign({ text: ':' }, commonFont)
                 },
                 Seconds: {
-                    w: 30,
-                    children: [{ type: ChangeValue }, { type: ChangeValue, x: 15 }]
+                    w: 100,
+                    children: [{ type: ChangeValue }, { type: ChangeValue, x: 50 }]
                 },
                 AmPm: {
                     w: 10,
-                    x: 5,
+                    x: 10,
                     y: 0,
                     type: ChangeValue,
-                    fontSize: 10
+                    fontSize: 32
                 }
             }
         }
@@ -158,15 +158,10 @@ class ChangeValue extends lng.Component {
 }
 const StartApp = new App({
     stage: {
-        w: adjustDevicePixelRatio(width),
-        h: adjustDevicePixelRatio(height),
-        precision: adjustDevicePixelRatio(),
-        clearColor: '0x00ff0000',
-        useImageWorker: false
+        w: width,
+        h: height
     }
 })
-function adjustDevicePixelRatio(val = 1) {
-    return val * (window.devicePixelRatio || 1)
-}
+
 const canvasApp = StartApp.stage.getCanvas()
 document.querySelector('#clock').appendChild(canvasApp)
