@@ -1,3 +1,5 @@
+@import url(./flipTimer.css);
+@import url(./player.css);
 * {
     margin: 0;
     padding: 0;

@@ -7,8 +7,6 @@
         <title>CC-Space</title>
         <link rel="stylesheet" href="css/index.css">
         <link rel="stylesheet" media="(max-width: 425px)" href="css/mobile.css">
-
-        <link rel="stylesheet" href="css/style.css">
     </head>
 
     <body>
@@ -20,8 +18,12 @@
                     </div>
                 </div>
                 <div id="item-1" class="grid-item">
-                    <div class="box">
-                        <div id="clock"></div>
+                    <div id="flipTimerContainer" class="box">
+                        <div class="flipTimer">
+                            <div class="hours"></div>
+                            <div class="minutes"></div>
+                            <div class="seconds"></div>
+                        </div>
                     </div>
                 </div>
                 <div id="item-2" class="grid-item">
@@ -94,11 +96,8 @@
 
     <script src="http://raw.githack.com/cccoding365/lib4js/main/index.js"></script>
 
-    <script src="js/lightning.min.js"></script>
-    <script src="js/clock.js"></script>
-
     <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.flipTimer.js"></script>
     <script src="js/player.js"></script>
-
 
 </html>
