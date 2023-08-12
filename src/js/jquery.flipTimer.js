@@ -339,4 +339,13 @@
   $(function () {
     $('#flipTimerContainer').flipTimer()
   })
+
+  const year = new Date().getFullYear()
+  const month = new Date().getMonth() + 1 < 10 ? '0' + (new Date().getMonth() + 1) : new Date().getMonth() + 1
+  const date = new Date().getDate()
+  const day = new Date().getDay()
+  const transDay = ['日', '一', '二', '三', '四', '五', '六']
+  const dateText = `${year}年 ${month}月${date}日 星期${transDay[day]}`
+  $('#date').text(dateText)
+
 })(jQuery)

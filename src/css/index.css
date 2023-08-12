@@ -147,12 +147,16 @@ body {
     grid-column-end: 5;
 }
 
-#clock {
+#flipTimerContainer {
+    position: relative;
+}
+
+#date {
+    position: absolute;
+    font-size: 28px;
     width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    text-align: center;
+    top: 0;
 }
 
 #item-2 {
