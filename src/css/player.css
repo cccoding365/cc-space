@@ -22,7 +22,8 @@
     left: 20px;
     height: 120px;
     padding: 10px 25px 10px 170px;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, .7);
+    backdrop-filter: blur(10px);
     border-radius: 15px 15px 0 0;
     transition: .25s linear all;
     z-index: 1;
@@ -52,7 +53,8 @@
     display: flex;
     justify-content: space-between;
     font-size: 14px;
-    color: #f86d92;
+    font-weight: bold;
+    color: #4c8bea;
     transition: .25s linear all;
 }
 
@@ -64,7 +66,7 @@
 }
 
 #s-area {
-    background-color: #ffe8ee;
+    background-color: #8dbbe3;
     cursor: pointer;
 }
 
@@ -73,6 +75,7 @@
     transform: translate(-50%, -30px);
     color: #fff;
     font-size: 12px;
+    font-weight: bold;
     white-space: pre;
     padding: 5px 6px;
     border-radius: 4px;
@@ -90,11 +93,11 @@
 
 #ins-time,
 #s-hover {
-    background-color: #f86d92;
+    background-color: #333;
 }
 
 #seek-bar {
-    background-color: #fd6d94;
+    background-color: #4c8bea;
     transition: .25s linear width;
 }
 
@@ -192,5 +195,5 @@
 }
 
 .button:hover i {
-    color: #fff;
+    color: #337eee;
 }
