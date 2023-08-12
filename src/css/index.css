@@ -150,14 +150,14 @@ body {
 
 #flipTimerContainer {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 #date {
-    position: absolute;
     font-size: 28px;
-    width: 100%;
-    text-align: center;
-    top: 0;
 }
 
 #item-2 {
