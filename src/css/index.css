@@ -63,6 +63,11 @@ body {
     grid-column-end: 3;
 }
 
+#avater {
+    width: 100%;
+    height: 100%;
+}
+
 #item-1 {
     background-color: #D76DBD;
     grid-row-start: 1;

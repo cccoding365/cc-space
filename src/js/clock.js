@@ -1,5 +1,7 @@
 const width = 500
 const height = 100
+const TimeItemWidth = 100
+const AmPmFontSize = 32
 const lineHeight = 80
 const commonFont = {
     fontSize: lineHeight,
@@ -14,31 +16,12 @@ class App extends lng.Application {
                 mount: .1,
                 x: 90,
                 y: 10,
-                Hours: {
-                    w: 100,
-                    children: [{ type: ChangeValue }, { type: ChangeValue, x: 50 }]
-                },
-                ColonOne: {
-                    text: Object.assign({ text: ':' }, commonFont)
-                },
-                Minutes: {
-                    w: 100,
-                    children: [{ type: ChangeValue }, { type: ChangeValue, x: 50 }]
-                },
-                ColonTwo: {
-                    text: Object.assign({ text: ':' }, commonFont)
-                },
-                Seconds: {
-                    w: 100,
-                    children: [{ type: ChangeValue }, { type: ChangeValue, x: 50 }]
-                },
-                AmPm: {
-                    w: 10,
-                    x: 10,
-                    y: 0,
-                    type: ChangeValue,
-                    fontSize: 32
-                }
+                Hours: { w: TimeItemWidth, children: [{ type: ChangeValue }, { type: ChangeValue, x: TimeItemWidth * 0.5 }] },
+                ColonOne: { text: Object.assign({ text: ':' }, commonFont) },
+                Minutes: { w: TimeItemWidth, children: [{ type: ChangeValue }, { type: ChangeValue, x: TimeItemWidth * 0.5 }] },
+                ColonTwo: { text: Object.assign({ text: ':' }, commonFont) },
+                Seconds: { w: TimeItemWidth, children: [{ type: ChangeValue }, { type: ChangeValue, x: TimeItemWidth * 0.5 }] },
+                AmPm: { x: 10, y: 0, type: ChangeValue, fontSize: AmPmFontSize }
             }
         }
     }
@@ -47,44 +30,22 @@ class App extends lng.Application {
         currentDate.setSeconds(currentDate.getSeconds() - 1)
         if (!lastTime || currentDate.toString() !== lastTime.toString()) {
             const nextDate = new Date()
-            this.setCurrentNext(
-                'Hours',
-                currentDate.getHours(),
-                nextDate.getHours(),
-                false
-            )
+            this.setCurrentNext('Hours', currentDate.getHours(), nextDate.getHours())
             this.setCurrentNext('Minutes', currentDate.getMinutes(), nextDate.getMinutes())
             this.setCurrentNext('Seconds', currentDate.getSeconds(), nextDate.getSeconds())
             this.tag('AmPm').patch({
-                currentValue: this.getAmPm(currentDate.getHours()),
-                nextValue: this.getAmPm(nextDate.getHours())
+                currentValue: currentDate.getHours() >= 12 ? 'PM' : 'AM',
+                nextValue: currentDate.getHours() >= 12 ? 'PM' : 'AM'
             })
         }
         window.requestAnimationFrame(() => this.setTime(currentDate))
     }
-    getAmPm(hours) {
-        let ampm = 'AM'
-        if (hours >= 12 && hours < 24) {
-            ampm = 'PM'
-        }
-        return ampm
-    }
-    doubleZero(val) {
-        return val.toString().padStart(2, '0')
-    }
-    setCurrentNext(tagName, currentValue = '', nextValue = '', leading = true) {
+    setCurrentNext(tagName, currentValue = '', nextValue = '') {
         const tag = this.tag(tagName)
-        currentValue = this.doubleZero(currentValue).split('')
-        nextValue = this.doubleZero(nextValue).split('')
-        if (!leading) {
-            currentValue[0] = currentValue[0] === '0' ? '' : currentValue[0]
-            nextValue[0] = nextValue[0] === '0' ? '' : nextValue[0]
-        }
+        currentValue = currentValue.toString().padStart(2, '0').split('')
+        nextValue = nextValue.toString().padStart(2, '0').split('')
         tag.children = tag.children.map((child, i) => {
-            child.patch({
-                currentValue: currentValue[i],
-                nextValue: nextValue[i]
-            })
+            child.patch({ currentValue: currentValue[i], nextValue: nextValue[i] })
             return child
         })
     }
@@ -140,11 +101,7 @@ class ChangeValue extends lng.Component {
         ctx.tag('Current').setSmooth('scale', 0.5, { duration: ctx.duration })
         ctx.tag('Next').setSmooth('alpha', 1, { duration: ctx.duration })
         ctx.tag('Next').setSmooth('scale', 1, { duration: ctx.duration })
-        ctx.tag('Next')
-            .transition('scale')
-            .on('finish', () => {
-                ctx.resetPosition(ctx)
-            })
+        ctx.tag('Next').transition('scale').on('finish', () => { ctx.resetPosition(ctx) })
     }
     resetPosition(ctx) {
         ctx.tag('Current').patch({
@@ -156,12 +113,7 @@ class ChangeValue extends lng.Component {
         ctx.tag('Next').patch({ alpha: 0, scale: 0.5 })
     }
 }
-const StartApp = new App({
-    stage: {
-        w: width,
-        h: height
-    }
-})
+const StartApp = new App({ stage: { w: 500, h: 100 } })
 
 const canvasApp = StartApp.stage.getCanvas()
 document.querySelector('#clock').appendChild(canvasApp)
