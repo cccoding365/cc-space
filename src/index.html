@@ -7,6 +7,11 @@
         <title>CC-Space</title>
         <link rel="stylesheet" href="css/index.css">
         <link rel="stylesheet" media="(max-width: 425px)" href="css/mobile.css">
+        <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.css">
+        <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
+        <script src="https://unpkg.com/swiper@8/swiper-bundle.js"> </script>
+        <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"> </script>
+        <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js.map"> </script>
     </head>
 
     <body>
@@ -79,7 +84,16 @@
                     </div>
                 </div>
                 <div id="item-4" class="grid-item">
-                    <div class="box">
+                    <div id="photoContainer" class="box">
+                        <div class="swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide"><img src="./imgs/pic01.jpg" alt=""></div>
+                                <div class="swiper-slide"><img src="./imgs/pic02.jpg" alt=""></div>
+                                <div class="swiper-slide"><img src="./imgs/pic03.jpg" alt=""></div>
+                                <div class="swiper-slide"><img src="./imgs/pic04.jpg" alt=""></div>
+                                <div class="swiper-slide"><img src="./imgs/pic05.jpg" alt=""></div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div id="item-5" class="grid-item">
@@ -111,5 +125,6 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.flipTimer.js"></script>
     <script src="js/player.js"></script>
+    <script src="js/photo.js"></script>
 
 </html>

@@ -1,5 +1,6 @@
 @import url(./flipTimer.css);
 @import url(./player.css);
+@import url(./photo.css);
 
 * {
     margin: 0;
@@ -186,6 +187,10 @@ body {
     grid-column-start: 5;
     grid-row-end: 3;
     grid-column-end: 7;
+}
+
+#photoContainer {
+    height: 100%;
 }
 
 #item-5 {
