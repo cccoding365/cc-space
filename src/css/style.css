@@ -1,75 +1,66 @@
+@import url(./solid.css);
+@import url(./fontawesome.css);
+
 *:focus {
     outline: none;
 }
 
 #player {
     position: relative;
-    height: 50%;
+    width: 100%;
+    height: 120px;
     z-index: 3;
 }
 
 #player-track {
+    visibility: hidden;
     position: absolute;
-    top: 0;
-    right: 15px;
-    left: 15px;
-    padding: 13px 22px 10px 184px;
-    background-color: #fff7f7;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    right: 20px;
+    left: 20px;
+    height: 120px;
+    padding: 10px 25px 10px 170px;
+    background-color: #fff;
     border-radius: 15px 15px 0 0;
-    transition: 0.3s ease top;
+    transition: .25s linear all;
     z-index: 1;
 }
 
 #player-track.active {
-    top: -92px;
+    visibility: visible;
+    transform: translateY(-120px);
 }
 
 #album-name {
-    color: #54576f;
-    font-size: 17px;
+    color: #333;
+    font-size: 24px;
     font-weight: bold;
 }
 
-#track-name {
-    color: #acaebd;
-    font-size: 13px;
-    margin: 2px 0 13px 0;
+#singerName {
+    font-size: 16px;
+    color: #aaa;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 #track-time {
-    height: 12px;
-    margin-bottom: 3px;
-    overflow: hidden;
-}
-
-#current-time {
-    float: left;
-}
-
-#track-length {
-    float: right;
-}
-
-#current-time,
-#track-length {
-    color: transparent;
-    font-size: 11px;
-    background-color: #ffe8ee;
-    border-radius: 10px;
-    transition: 0.3s ease all;
-}
-
-#track-time.active #current-time,
-#track-time.active #track-length {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
     color: #f86d92;
-    background-color: transparent;
+    transition: .25s linear all;
 }
 
 #s-area,
 #seek-bar {
     position: relative;
-    height: 4px;
-    border-radius: 4px;
+    height: 7px;
+    border-radius: 7px;
 }
 
 #s-area {
@@ -79,7 +70,7 @@
 
 #ins-time {
     position: absolute;
-    top: -29px;
+    transform: translate(-50%, -30px);
     color: #fff;
     font-size: 12px;
     white-space: pre;
@@ -99,84 +90,54 @@
 
 #ins-time,
 #s-hover {
-    background-color: #3b3d50;
+    background-color: #f86d92;
 }
 
 #seek-bar {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    width: 0;
     background-color: #fd6d94;
-    transition: 0.2s ease width;
-    z-index: 1;
+    transition: .25s linear width;
 }
 
 #player-content {
     position: relative;
     height: 100%;
     background-color: #fff;
-    box-shadow: 0 30px 80px #656565;
+    box-shadow: 5px 5px 10px 3px rgba(0, 0, 0, .3);
     border-radius: 15px;
     z-index: 2;
+    padding: 16px;
 }
 
 #album-art {
     position: absolute;
     top: -40px;
-    width: 115px;
-    height: 115px;
-    margin-left: 40px;
+    left: 40px;
+    width: 120px;
+    height: 120px;
     -webkit-transform: rotateZ(0);
     transform: rotateZ(0);
     transition: 0.3s ease all;
-    box-shadow: 0 0 0 10px #fff;
+    border: 5px solid #d6dee7;
+    box-shadow: 3px 3px 20px 0 rgba(51, 51, 51, .7);
     border-radius: 50%;
     overflow: hidden;
 }
 
 #album-art.active {
     top: -60px;
-    box-shadow: 0 0 0 4px #fff7f7, 0 30px 50px -15px #afb7c1;
-}
-
-#album-art:before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: 0;
-    left: 0;
-    width: 20px;
-    height: 20px;
-    margin: -10px auto 0 auto;
-    background-color: #d6dee7;
-    border-radius: 50%;
-    box-shadow: inset 0 0 0 2px #fff;
-    z-index: 2;
+    border: 20px solid #333;
+    box-shadow: 0 0 0 7px #ccc, 0 30px 50px -15px #afb7c1;
 }
 
 #album-art img {
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0;
-    z-index: -1;
-}
-
-#album-art img.active {
-    opacity: 1;
-    z-index: 1;
+    transition: .25s linear all;
 }
 
 #album-art.active img.active {
-    z-index: 1;
-    -webkit-animation: rotateAlbumArt 3s linear 0s infinite forwards;
-    animation: rotateAlbumArt 3s linear 0s infinite forwards;
+    -webkit-animation: rotateAlbumArt 5s linear 0s infinite forwards;
+    animation: rotateAlbumArt 5s linear 0s infinite forwards;
 }
 
 @-webkit-keyframes rotateAlbumArt {
@@ -203,78 +164,27 @@
     }
 }
 
-#buffer-box {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    left: 0;
-    height: 13px;
-    color: #1f1f1f;
-    font-size: 13px;
-    font-family: Helvetica;
-    text-align: center;
-    font-weight: bold;
-    line-height: 1;
-    padding: 6px;
-    margin: -12px auto 0 auto;
-    background-color: rgba(255, 255, 255, 0.19);
-    opacity: 0;
-    z-index: 2;
-}
-
-#album-art img,
-#buffer-box {
-    transition: 0.1s linear all;
-}
-
-#album-art.buffering img {
-    opacity: 0.25;
-}
-
-#album-art.buffering img.active {
-    opacity: 0.8;
-    filter: blur(2px);
-    -webkit-filter: blur(2px);
-}
-
-#album-art.buffering #buffer-box {
-    opacity: 1;
-}
-
 #player-controls {
-    width: 250px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
     height: 100%;
-    margin: 0 5px 0 141px;
-    float: right;
-    overflow: hidden;
-}
-
-.control {
-    width: 33.333%;
-    float: left;
-    padding: 12px 0;
+    margin-left: 32%;
 }
 
 .button {
-    width: 26px;
-    height: 26px;
-    padding: 25px;
-    background-color: #fff;
-    border-radius: 6px;
+    padding: 24px;
+    border-radius: 12px;
     cursor: pointer;
+    transition: .25s ease all;
 }
 
 .button i {
-    display: block;
     color: #d6dee7;
-    font-size: 26px;
+    font-size: 32px;
     text-align: center;
-    line-height: 1;
-}
-
-.button,
-.button i {
-    transition: 0.2s ease all;
+    transition: .25s ease all;
 }
 
 .button:hover {
@@ -283,32 +193,4 @@
 
 .button:hover i {
     color: #fff;
-}
-
-#follow-me-link {
-    top: 10px;
-    font-size: 13px;
-    padding: 5px 7px;
-    background-color: #f86d92;
-    border-radius: 2px;
-}
-
-#share-link {
-    top: 45px;
-    width: 16px;
-    height: 16px;
-    padding: 10px;
-    font-size: 16px;
-    background-color: #7dca24;
-    border-radius: 50%;
-}
-
-#follow-me-link,
-#share-link {
-    position: fixed;
-    right: 10px;
-    color: #fff;
-    text-align: center;
-    text-decoration: none;
-    z-index: 125;
 }
