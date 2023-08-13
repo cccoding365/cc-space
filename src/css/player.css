@@ -42,7 +42,7 @@
 
 #singerName {
     font-size: 16px;
-    color: #aaa;
+    color: #555;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -67,7 +67,7 @@
 
 #s-area {
     background-color: #8dbbe3;
-    cursor: pointer;
+    /* cursor: pointer; */
 }
 
 #ins-time {

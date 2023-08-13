@@ -18,7 +18,8 @@ a {
 }
 
 body {
-    background: #158bb8;
+    /* background: #158bb8; */
+    background: linear-gradient(to top right, #fc00ff, #00dbde);
     font-family: PingFang SC, 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     color: #fff;
 }
@@ -46,7 +47,7 @@ body {
     gap: 16px;
     padding: 64px 16px;
 
-    transition: all linear 0.25s;
+    /* transition: all linear 0.25s; */
 }
 
 .grid-item {
@@ -58,7 +59,9 @@ body {
     width: 100%;
     height: 100%;
     border-radius: 10px;
-    border: 3px solid #fff;
+    /* border: 3px solid #fff; */
+    background-color: rgba(255, 255, 255, .3);
+    backdrop-filter: blur(5px);
     padding: 8px;
     transition: all linear .25s;
 }
@@ -88,7 +91,8 @@ body {
 #avatar {
     width: 300px;
     height: 300px;
-    border: 7px solid #fff;
+    border: 10px solid #fff;
+    padding: 7px;
     box-shadow: 5px 5px 10px rgba(255, 255, 255, .7);
     border-radius: 50%;
     margin-bottom: 20px;
@@ -190,6 +194,8 @@ body {
 }
 
 #photoContainer {
+    display: flex;
+    align-items: center;
     height: 100%;
 }
 
