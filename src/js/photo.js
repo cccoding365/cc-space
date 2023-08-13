@@ -1,15 +1,15 @@
-import Swiper from '../../node_modules/swiper/swiper-bundle.min.mjs'
+import Swiper from 'swiper/bundle'
 const imgUrls = [
-    './imgs/pic00.png',
-    './imgs/pic01.jpg',
-    './imgs/pic03.jpg',
-    './imgs/pic04.png',
-    './imgs/pic05.png',
-    './imgs/pic06.jpeg',
-    './imgs/pic07.png',
-    './imgs/pic08.jpg',
-    './imgs/pic09.jpeg',
-    './imgs/pic10.jpg'
+    '/imgs/pic00.png',
+    '/imgs/pic01.jpg',
+    '/imgs/pic03.jpg',
+    '/imgs/pic04.png',
+    '/imgs/pic05.png',
+    '/imgs/pic06.jpeg',
+    '/imgs/pic07.png',
+    '/imgs/pic08.jpg',
+    '/imgs/pic09.jpeg',
+    '/imgs/pic10.jpg'
 ]
 
 const swiper = document.createElement('div')
@@ -28,7 +28,7 @@ imgUrls.forEach(url => {
 swiper.appendChild(swiperWrapper)
 document.getElementById('photoContainer').appendChild(swiper)
 
-const swiperObj = new Swiper('.swiper', {
+new Swiper('.swiper', {
     effect: 'flip',
     autoplay: true,
     direction: 'horizontal',
@@ -36,5 +36,3 @@ const swiperObj = new Swiper('.swiper', {
     speed: 1000,
     preloadImages: false,
 })
-
-export default swiperObj
