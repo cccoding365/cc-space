@@ -82,7 +82,7 @@ body {
 #profileContainer {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: flex-start;
     font-size: 20px;
     padding: 10px 40px;
