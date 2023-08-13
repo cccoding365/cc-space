@@ -4,9 +4,10 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <base href="src/">
         <title>CC-Space</title>
-        <link rel="stylesheet" href="css/index.css">
-        <link rel="stylesheet" media="(max-width: 425px)" href="css/mobile.css">
+        <link rel="stylesheet" href="./css/index.css">
+        <link rel="stylesheet" media="(max-width: 425px)" href="./css/mobile.css">
 
         <script>
             const setScale = () => {
@@ -93,22 +94,7 @@
                     </div>
                 </div>
                 <div id="item-4" class="grid-item">
-                    <div id="photoContainer" class="box">
-                        <div class="swiper">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide"><img src="./imgs/pic00.png" alt=""></div>
-                                <div class="swiper-slide"><img src="./imgs/pic01.jpg" alt=""></div>
-                                <div class="swiper-slide"><img src="./imgs/pic03.jpg" alt=""></div>
-                                <div class="swiper-slide"><img src="./imgs/pic04.png" alt=""></div>
-                                <div class="swiper-slide"><img src="./imgs/pic05.png" alt=""></div>
-                                <div class="swiper-slide"><img src="./imgs/pic06.jpeg" alt=""></div>
-                                <div class="swiper-slide"><img src="./imgs/pic07.png" alt=""></div>
-                                <div class="swiper-slide"><img src="./imgs/pic08.jpg" alt=""></div>
-                                <div class="swiper-slide"><img src="./imgs/pic09.jpeg" alt=""></div>
-                                <div class="swiper-slide"><img src="./imgs/pic10.jpg" alt=""></div>
-                            </div>
-                        </div>
-                    </div>
+                    <div id="photoContainer" class="box"> </div>
                 </div>
                 <div id="item-5" class="grid-item">
                     <div class="box">
@@ -134,11 +120,11 @@
         </div>
     </body>
 
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery.flipTimer.js"></script>
-    <script src="js/swiper-bundle.min.js"></script>
+    <script src="./js/jquery.min.js"></script>
 
-    <script src="js/player.js"></script>
-    <script src="js/photo.js"></script>
+    <script src="./js/jquery.flipTimer.js"></script>
+
+    <script src="./js/player.js"></script>
+    <script type="module" src="./js/photo.js"></script>
 
 </html>
