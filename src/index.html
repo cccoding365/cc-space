@@ -7,8 +7,20 @@
         <title>CC-Space</title>
         <link rel="stylesheet" href="css/index.css">
         <link rel="stylesheet" media="(max-width: 425px)" href="css/mobile.css">
-        <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css">
-        <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"> </script>
+
+        <script>
+            const setScale = () => {
+                let clientWidth = document.documentElement.clientWidth
+                let clientHeight = document.documentElement.clientHeight
+                let designWidth = document.getElementById('container').offsetWidth
+                let designHeight = document.getElementById('container').offsetHeight
+                let scale = Math.min((clientWidth / designWidth), (clientHeight / designHeight))
+                document.querySelector('#container').style.transform = `scale(${scale}) translate(-50%,-50%)`
+            }
+            window.addEventListener('load', setScale)
+            window.addEventListener('resize', setScale)
+        </script>
+
     </head>
 
     <body>
@@ -21,7 +33,7 @@
                             <div id="status">🧐</div>
                         </div>
                         <div id="name">DoubledConG</div>
-                        <div id="motto">Do what you love, Love what you do.</div>
+                        <div id="motto">$: Do what you love, Love what you do.</div>
                         <div id="location"><i class="fas fa-map-marker-alt"></i><a target="_blank"
                                 href="https://www.google.com/search?q=amoy+china">China Amoy</a> </div>
                         <div id="link"> <i class="fas fa-link"></i><a target="_blank"
@@ -84,13 +96,16 @@
                     <div id="photoContainer" class="box">
                         <div class="swiper">
                             <div class="swiper-wrapper">
+                                <div class="swiper-slide"><img src="./imgs/pic00.png" alt=""></div>
                                 <div class="swiper-slide"><img src="./imgs/pic01.jpg" alt=""></div>
-                                <div class="swiper-slide"><img src="./imgs/pic02.jpg" alt=""></div>
-                                <div class="swiper-slide"><img src="./imgs/pic03.png" alt=""></div>
-                                <div class="swiper-slide"><img src="./imgs/pic04.jpg" alt=""></div>
-                                <div class="swiper-slide"><img src="./imgs/pic05.jpg" alt=""></div>
-                                <div class="swiper-slide"><img src="./imgs/pic06.png" alt=""></div>
+                                <div class="swiper-slide"><img src="./imgs/pic03.jpg" alt=""></div>
+                                <div class="swiper-slide"><img src="./imgs/pic04.png" alt=""></div>
+                                <div class="swiper-slide"><img src="./imgs/pic05.png" alt=""></div>
+                                <div class="swiper-slide"><img src="./imgs/pic06.jpeg" alt=""></div>
                                 <div class="swiper-slide"><img src="./imgs/pic07.png" alt=""></div>
+                                <div class="swiper-slide"><img src="./imgs/pic08.jpg" alt=""></div>
+                                <div class="swiper-slide"><img src="./imgs/pic09.jpeg" alt=""></div>
+                                <div class="swiper-slide"><img src="./imgs/pic10.jpg" alt=""></div>
                             </div>
                         </div>
                     </div>
@@ -119,10 +134,10 @@
         </div>
     </body>
 
-    <script src="http://raw.githack.com/cccoding365/lib4js/main/index.js"></script>
-
     <script src="js/jquery.min.js"></script>
     <script src="js/jquery.flipTimer.js"></script>
+    <script src="js/swiper-bundle.min.js"></script>
+
     <script src="js/player.js"></script>
     <script src="js/photo.js"></script>
 

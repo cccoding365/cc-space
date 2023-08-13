@@ -1,4 +1,5 @@
 @import url(./flipTimer.css);
+@import url(./swiper-bundle.min.css);
 @import url(./player.css);
 @import url(./photo.css);
 
@@ -86,6 +87,7 @@ body {
     font-size: 20px;
     padding: 10px 40px;
     color: #eee;
+    font-weight: bold;
 }
 
 #avatar {
@@ -93,7 +95,8 @@ body {
     height: 300px;
     border: 10px solid #fff;
     padding: 7px;
-    box-shadow: 5px 5px 10px rgba(255, 255, 255, .7);
+    box-shadow: 20px 20px 30px 10px rgba(0, 0, 0, 0.1),
+        10px 10px 30px 7px rgba(0, 0, 0, 0.3);
     border-radius: 50%;
     margin-bottom: 20px;
     position: relative;
@@ -125,7 +128,7 @@ body {
 #name {
     color: #fff;
     font-size: 48px;
-    font-weight: bold;
+    text-shadow: 5px 5px 10px rgba(65, 65, 65, 0.5);
 }
 
 #motto {
@@ -162,6 +165,7 @@ body {
 
 #date {
     font-size: 28px;
+    text-shadow: 5px 5px 10px rgba(65, 65, 65, 0.5);
 }
 
 #item-2 {

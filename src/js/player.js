@@ -22,7 +22,8 @@ $(function () {
             { albums: '我的楼兰', singerName: '云朵', coverUrl: 'imgs/2.jpg', trackUrl: 'audio/2.m4a' },
             { albums: 'My Stupid Heart', singerName: 'Walk off the Earth / Luminati Suns', coverUrl: 'imgs/3.jpg', trackUrl: 'audio/3.m4a' },
             { albums: 'Diamond Cut Diamond', singerName: 'Worry Free Studios / Grimmmz / United Idol', coverUrl: 'imgs/4.jpg', trackUrl: 'audio/4.m4a' },
-            { albums: 'How Do You Do', singerName: 'beFour', coverUrl: 'imgs/5.jpg', trackUrl: 'audio/5.m4a' }
+            { albums: 'How Do You Do', singerName: 'beFour', coverUrl: 'imgs/5.jpg', trackUrl: 'audio/5.m4a' },
+            { albums: '猜', singerName: '顾峰 / 斯琴高丽', coverUrl: 'imgs/6.jpg', trackUrl: 'audio/6.m4a' }
         ]
 
     function playPause() {
@@ -190,9 +191,9 @@ $(function () {
         audio.loop = false
         $(audio).on('ended', () => selectTrack(1))
         playPauseButton.click(playPause)
-        sArea.mousemove(event => showHover(event))
-        sArea.mouseout(hideHover)
-        sArea.click(playFromClickedPos)
+        // sArea.mousemove(event => showHover(event))
+        // sArea.mouseout(hideHover)
+        // sArea.click(playFromClickedPos)
         $(audio).on('timeupdate', updateCurrTime)
         playPreviousTrackButton.click(() => selectTrack(-1))
         playNextTrackButton.click(() => selectTrack(1))
