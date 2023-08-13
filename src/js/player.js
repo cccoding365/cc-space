@@ -14,7 +14,7 @@ $(function () {
         i = playPauseButton.find('i'),
         tProgress = $('#current-time'),
         tTime = $('#track-length'),
-        seekT, seekLoc, seekBarPos, cM, ctMinutes, ctSeconds, curMinutes, curSeconds, durMinutes, durSeconds, playProgress, bTime, nTime = 0,
+        curMinutes, curSeconds, durMinutes, durSeconds, playProgress, bTime, nTime = 0,
         tFlag = false,
         currIndex = -1,
         musicList = [
@@ -40,48 +40,6 @@ $(function () {
                 audio.pause()
             }
         }, 0)
-    }
-
-    function showHover(event) {
-        seekBarPos = sArea.offset()
-        seekT = event.clientX - seekBarPos.left
-        seekLoc = audio.duration * (seekT / sArea.outerWidth())
-
-        sHover.width(seekT)
-
-        cM = seekLoc / 60
-
-        ctMinutes = Math.floor(cM)
-        ctSeconds = Math.floor(seekLoc - ctMinutes * 60)
-
-        if ((ctMinutes < 0) || (ctSeconds < 0))
-            return
-
-        if ((ctMinutes < 0) || (ctSeconds < 0))
-            return
-
-        if (ctMinutes < 10)
-            ctMinutes = '0' + ctMinutes
-        if (ctSeconds < 10)
-            ctSeconds = '0' + ctSeconds
-
-        if (isNaN(ctMinutes) || isNaN(ctSeconds))
-            insTime.text('--:--')
-        else
-            insTime.text(ctMinutes + ':' + ctSeconds)
-
-        insTime.css({ 'left': seekT }).fadeIn(0)
-    }
-
-    function hideHover() {
-        sHover.width(0)
-        insTime.text('00:00').css({ 'left': '0px', 'margin-left': '0px' }).fadeOut(0)
-    }
-
-    function playFromClickedPos() {
-        audio.currentTime = seekLoc
-        seekBar.width(seekT)
-        hideHover()
     }
 
     function updateCurrTime() {
@@ -190,13 +148,10 @@ $(function () {
         selectTrack(0)
         audio.loop = false
         $(audio).on('ended', () => selectTrack(1))
-        playPauseButton.click(playPause)
-        // sArea.mousemove(event => showHover(event))
-        // sArea.mouseout(hideHover)
-        // sArea.click(playFromClickedPos)
+        playPauseButton.on('click', playPause)
         $(audio).on('timeupdate', updateCurrTime)
-        playPreviousTrackButton.click(() => selectTrack(-1))
-        playNextTrackButton.click(() => selectTrack(1))
+        playPreviousTrackButton.on('click', () => selectTrack(-1))
+        playNextTrackButton.on('click', () => selectTrack(1))
     }
 
     initPlayer()

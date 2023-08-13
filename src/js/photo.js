@@ -34,5 +34,5 @@ new Swiper('.swiper', {
     direction: 'horizontal',
     loop: true,
     speed: 1000,
-    preloadImages: false,
+    preloadImages: true,
 })

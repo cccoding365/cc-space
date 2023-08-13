@@ -5,7 +5,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
     mode: 'development',
     target: 'web',
-    // entry: path.join(__dirname, 'src', 'main.js'),
     entry: '@/main.js',
     resolve: {
         extensions: [".js", ".jsx", ".json"],
@@ -31,21 +30,6 @@ module.exports = {
                 loader: 'babel-loader',
                 include: path.join(__dirname, 'src'),
                 exclude: /node_modules/
-            },
-            {
-                test: /\.jpg|\.png|\.jpeg|\.svg|\.ttf|\.woff$/,
-                use: [{
-                    loader: 'file-loader',
-                    options: {
-                        name: '[name].[ext]',
-                        outputPath: './img',
-                        publicPath: '@/imgs'
-                    }
-                }]
-            },
-            {
-                test: /\.(png|jpe?g|gif|svg)$/,
-                loader: "url-loader"
             }
         ]
     },
