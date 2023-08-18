@@ -41,7 +41,7 @@
 .flipTimer .days {
   height: 100%;
   display: inline;
-  margin: 0 10px;
+  margin: 0 7px;
 }
 
 .flipTimer .digit-set {
@@ -52,7 +52,7 @@
   height: 100%;
   display: inline-block;
   position: relative;
-  margin: 0 5px;
+  margin: 0 3px;
 }
 
 .flipTimer .digit {
@@ -65,7 +65,7 @@
   left: 0;
   overflow: hidden;
   height: 50%;
-  padding: 0 12px;
+  padding: 0 10px;
 }
 
 .flipTimer .digit>div.digit-top,
