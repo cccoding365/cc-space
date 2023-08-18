@@ -1,15 +1,15 @@
 import Swiper from 'swiper/bundle'
 const imgUrls = [
-    '/imgs/pic00.png',
-    '/imgs/pic01.jpg',
-    '/imgs/pic03.jpg',
-    '/imgs/pic04.png',
-    '/imgs/pic05.png',
-    '/imgs/pic06.jpeg',
-    '/imgs/pic07.png',
-    '/imgs/pic08.jpg',
-    '/imgs/pic09.jpeg',
-    '/imgs/pic10.jpg'
+    '/pic00.png',
+    '/pic01.jpg',
+    '/pic03.jpg',
+    '/pic04.png',
+    '/pic05.png',
+    '/pic06.jpeg',
+    '/pic07.png',
+    '/pic08.jpg',
+    '/pic09.jpeg',
+    '/pic10.jpg'
 ]
 
 const swiper = document.createElement('div')
@@ -17,11 +17,13 @@ swiper.className = 'swiper'
 const swiperWrapper = document.createElement('div')
 swiperWrapper.className = 'swiper-wrapper'
 
+const baseUrl = 'https://image-1258911198.cos.ap-guangzhou.myqcloud.com/cc-space/imgs/'
+
 imgUrls.forEach(url => {
     const swiperSlide = document.createElement('div')
     swiperSlide.className = 'swiper-slide'
     const img = document.createElement('img')
-    img.setAttribute('src', url)
+    img.setAttribute('src', baseUrl + url)
     swiperSlide.appendChild(img)
     swiperWrapper.appendChild(swiperSlide)
 })
@@ -34,5 +36,5 @@ new Swiper('.swiper', {
     direction: 'horizontal',
     loop: true,
     speed: 1000,
-    preloadImages: true,
+    // preloadImages: true,
 })

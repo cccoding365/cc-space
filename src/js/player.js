@@ -120,7 +120,9 @@ $(function () {
             tProgress.text('00:00')
             tTime.text('00:00')
 
-            audio.src = musicList[currIndex].trackUrl
+            const baseUrl = 'https://image-1258911198.cos.ap-guangzhou.myqcloud.com/cc-space/'
+
+            audio.src = baseUrl + musicList[currIndex].trackUrl
 
             nTime = 0
             bTime = new Date()
@@ -134,7 +136,7 @@ $(function () {
 
             albumName.text(musicList[currIndex].albums)
             singerName.text(musicList[currIndex].singerName)
-            albumArt.find('img').addClass('active').attr('src', musicList[currIndex].coverUrl)
+            albumArt.find('img').addClass('active').attr('src', baseUrl + musicList[currIndex].coverUrl)
         } else {
             if (flag == 0 || flag == 1)
                 --currIndex
