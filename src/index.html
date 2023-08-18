@@ -12,6 +12,13 @@
             const setScale = () => {
                 let clientWidth = document.documentElement.clientWidth
                 let clientHeight = document.documentElement.clientHeight
+
+                if (clientWidth / clientHeight < 1) {
+                    document.querySelector('#container').className = 'portrait'
+                } else {
+                    document.querySelector('#container').className = 'landscape'
+                }
+
                 let designWidth = document.getElementById('container').offsetWidth
                 let designHeight = document.getElementById('container').offsetHeight
                 let scale = Math.min((clientWidth / designWidth), (clientHeight / designHeight))
