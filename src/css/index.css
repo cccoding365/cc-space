@@ -249,3 +249,12 @@ body {
     grid-row-end: 4;
     grid-column-end: 7;
 }
+
+#copyrightInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    text-align: center;
+}
